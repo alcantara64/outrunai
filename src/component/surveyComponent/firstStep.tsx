@@ -9,19 +9,19 @@ export default function FirstStep(props:any) {
 <>
 <div className="form-group">
   <label htmlFor="name" >What is your name?</label>
-  <Field type="text" className="form-control" id="name"  name="name"/>
+  <Field type="text" required className="form-control" id="name"  name="name"/>
 </div>
 <div className="form-group">
   <label htmlFor="management">What Management company do you represent?</label>
-  <Field type="text" className="form-control" id="management" name="management" />
+  <Field type="text" required className="form-control" id="management" name="managementCompany" />
 </div>
 <div className="form-group">
   <label htmlFor="position">What is your position?</label>
-  <Field type="text" className="form-control" id="position"  name="position"/>
+  <Field type="text" required className="form-control" id="position"  name="position"/>
 </div>
 <div className="form-group">
   <label htmlFor="position">How many hotels do you oversee?</label>
-  <Field  className="form-control" id="pwd" as="select" >
+  <Field  className="form-control" id="pwd" required name="hotelsManaged" as="select" >
       <option value="1"> 1 </option>
       <option value="2"> 2</option>
       <option value="3"> 3</option>
@@ -32,10 +32,10 @@ export default function FirstStep(props:any) {
 </div>
 <div className="form-group">
   <label htmlFor="position">What hotel brand does your Management company work with?</label>
-  <Field type="text" className="form-control" id="position"  name="hotelBrand"/>
+  <Field type="text" required className="form-control" id="position"  name="hotelBrand"/>
 </div>
 <div className = "step footer">
-<button className="btn btn-sm" onClick={props.nextStep}>Next Step</button>
+<button className="btn btn-sm pull-right" type="button"  style={{backgroundColor:'#07346A',color:'white'}} onClick={props.nextStep}>Next Step</button>
 </div>
 </>
     )

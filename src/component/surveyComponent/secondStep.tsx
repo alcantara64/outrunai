@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Field } from 'formik';
 
 export default function SecondStep(props: any) {
+  console.log('SecondStep ==>',props)
   const [other, setOther] = useState(false);
   const [software, setSoftware] = useState('');
   const [solution, setSolution] = useState(false);
@@ -66,7 +67,7 @@ export default function SecondStep(props: any) {
           onChange={chnageSolution}
           className="form-control"
           id="needs"
-          name="companyNeed"
+          name="softwareNeeds"
           value={solutionValue}
         >
           <option value="no"> No </option>
@@ -78,7 +79,7 @@ export default function SecondStep(props: any) {
               type="text"
               className="form-control"
               id="position"
-              name="softwareSolution"
+              name="softwareData"
               placeholder={`Please list ${solutionValue === "yes"?'according to importance':'why'} `}
             />
           </div>
@@ -94,8 +95,11 @@ export default function SecondStep(props: any) {
         />
       </div>
       <div className="step footer">
-        <button className="btn btn-sm" onClick={props.nextStep}>
-          Next Step
+        <button className="btn btn-sm" type="button" style={{backgroundColor:'#DB7938',color:'white'}} onClick={props.previousStep}>
+          Previous Step
+        </button>
+        <button  className="btn btn-md pull-right"  type="submit" disabled ={props.isSubmitting} style={{backgroundColor:'#07346A',color:'white'}}>
+         Submit
         </button>
       </div>
     </>

@@ -5,17 +5,34 @@ import FirstStep from "./firstStep";
 import { FooterComponent } from "../../container/footerComponent";
 import { HeaderComponent } from "../../container/headerComponent";
 import SecondStep from "./secondStep";
-
+import { SurveyService } from "../../services/surveyService";
+ import {Redirect} from "react-router-dom";
+ import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 export interface Props {
    
 }
  
 export interface State {
-    stage: Number
+    stage: Number,
+    submitted:boolean,
 }
  
 class surverComponent  extends React.Component<Props, State> {
-    state = { stage: 9  }
+  constructor(props:any){
+    super(props)
+    this.state = { 
+      submitted: false,
+      stage:0,
+
+      }
+  }
+  submitted= () =>{
+    this.setState({
+      submitted:true
+    })
+  }
+   
     render(): JSX.Element { 
         return(
             <div className="page-wrapper">
@@ -24,31 +41,25 @@ class surverComponent  extends React.Component<Props, State> {
         <div className="container contain-jumbotron">
         <div className="jumbotron">
         <Formik
-       initialValues={{ email: '', password: '' }}
-       validate={values => {
-         const errors = {email:''};
-         if (!values.email) {
-           errors.email = 'Required';
-         } else if (
-           !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)
-         ) {
-           errors.email = 'Invalid email address';
-         }
-         return errors;
-       }}
+       initialValues={{ name: '', managementCompany:'', position:'' }}
        onSubmit={(values, { setSubmitting }) => {
-         setTimeout(() => {
-           alert(JSON.stringify(values, null, 2));
-           setSubmitting(false);
-         }, 400);
+       setSubmitting(true)
+       console.log(values)
+       SurveyService.submit(values)
+       .then(() =>{
+       toast.success('Thanks for taking the survey');
+       })
        }}
      >
-                 {({ isSubmitting }) => (
+                 {({ isSubmitting,
+                handleSubmit,
+                errors,
+                }) => (
                       
-         <Form>
+         <Form onSubmit={handleSubmit}>
              <StepWizard >
              <FirstStep/>
-             <SecondStep/>
+             <SecondStep isSubmitting={isSubmitting}/>
             </StepWizard>
          </Form>   
                     
@@ -59,7 +70,9 @@ class surverComponent  extends React.Component<Props, State> {
             </div>
             </div>
              <FooterComponent />
+             <ToastContainer/> 
              </div>
+
         )
     }
 }
