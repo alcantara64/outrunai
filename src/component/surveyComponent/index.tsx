@@ -1,12 +1,11 @@
 import React from "react";
 import StepWizard from 'react-step-wizard';
-import { Formik, Form, Field, ErrorMessage } from 'formik';
+import { Formik, Form } from 'formik';
 import FirstStep from "./firstStep";
 import { FooterComponent } from "../../container/footerComponent";
 import { HeaderComponent } from "../../container/headerComponent";
 import SecondStep from "./secondStep";
 import { SurveyService } from "../../services/surveyService";
- import {Redirect} from "react-router-dom";
  import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 export interface Props {
@@ -53,7 +52,6 @@ class surverComponent  extends React.Component<Props, State> {
      >
                  {({ isSubmitting,
                 handleSubmit,
-                errors,
                 }) => (
                       
          <Form onSubmit={handleSubmit}>
