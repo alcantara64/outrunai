@@ -49,6 +49,9 @@ class surverComponent  extends React.Component<Props, State> {
        .then(() =>{
        toast.success('Thanks for taking the survey');
        })
+       .catch(error =>{
+         toast.error(error.message)
+       })
        }}
      >
                  {({ isSubmitting,

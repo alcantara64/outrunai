@@ -82,7 +82,7 @@ export default function SecondStep(props: any) {
           onChange={chnageSolution}
           className="form-control"
           id="needs"
-          name="softwareNeeds"
+          name="softwareData"
           value={solutionValue}
         >
           <option value="no"> No </option>
@@ -94,7 +94,7 @@ export default function SecondStep(props: any) {
               type="text"
               className="form-control"
               id="position"
-              name="softwareData"
+              name="softwareNeeds"
               placeholder={`Please list ${
                 solutionValue === 'yes' ? 'according to importance' : 'why'
               } `}
