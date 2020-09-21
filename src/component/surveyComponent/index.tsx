@@ -10,7 +10,7 @@ import { SurveyService } from "../../services/surveyService";
 import 'react-toastify/dist/ReactToastify.css';
 import ThirdStep from "./thirdStep";
 export interface Props {
-   
+   history:any,
 }
  
 export interface State {
@@ -34,6 +34,7 @@ class surverComponent  extends React.Component<Props, State> {
   }
    
     render(): JSX.Element { 
+      console.log('props ==>', this.props)
         return(
             <div className="page-wrapper">
             <HeaderComponent />
@@ -47,7 +48,9 @@ class surverComponent  extends React.Component<Props, State> {
        console.log(values)
        SurveyService.submit(values)
        .then(() =>{
-       toast.success('Thanks for taking the survey');
+       toast.success('Thank You - Your response is most appreciated as it will help us design software solutions for your benefit.');
+       this.props.history.push('/')
+       this.submitted()
        })
        .catch(error =>{
          toast.error(error.message)
@@ -62,7 +65,7 @@ class surverComponent  extends React.Component<Props, State> {
              <StepWizard >
              <FirstStep/>
              <SecondStep />
-             <ThirdStep isSubmitting={isSubmitting}></ThirdStep>
+             <ThirdStep isSubmitting={this.state.submitted}></ThirdStep>
             </StepWizard>
          </Form>   
                     
