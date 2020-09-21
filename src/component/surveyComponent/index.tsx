@@ -8,6 +8,7 @@ import SecondStep from "./secondStep";
 import { SurveyService } from "../../services/surveyService";
  import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import ThirdStep from "./thirdStep";
 export interface Props {
    
 }
@@ -57,7 +58,8 @@ class surverComponent  extends React.Component<Props, State> {
          <Form onSubmit={handleSubmit}>
              <StepWizard >
              <FirstStep/>
-             <SecondStep isSubmitting={isSubmitting}/>
+             <SecondStep />
+             <ThirdStep isSubmitting={isSubmitting}></ThirdStep>
             </StepWizard>
          </Form>   
                     

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Field } from "formik";
+import importedImage from '../../Images/survey-image.png'
 
 export default function FirstStep(props:any) {
 
@@ -7,6 +8,10 @@ export default function FirstStep(props:any) {
     
 
 <>
+<div className="row">
+<img src={importedImage}  alt="Survey" width="161" style={{paddingLeft:"37%", marginBottom:"11px"}}/>
+</div>
+
 <div className="form-group">
   <label htmlFor="name" >What is your name?</label>
   <Field type="text" required className="form-control" id="name"  name="name"/>
