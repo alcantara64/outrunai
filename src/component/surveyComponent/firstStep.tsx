@@ -31,8 +31,8 @@ export default function FirstStep(props:any) {
   </Field>
 </div>
 <div className="form-group">
-  <label htmlFor="position">What hotel brand does your Management company work with?</label>
-  <Field type="text" required className="form-control" id="position"  name="hotelBrand"/>
+  <label htmlFor="hotelBrand">Which hotel brands does your Management company work with?</label>
+  <Field type="text" required className="form-control" id="hotelBrand"  name="hotelBrand"/>
 </div>
 <div className = "step footer">
 <button className="btn btn-sm pull-right" type="button"  style={{backgroundColor:'#07346A',color:'white'}} onClick={props.nextStep}>Next Step</button>

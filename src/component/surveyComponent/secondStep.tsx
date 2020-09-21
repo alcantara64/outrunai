@@ -27,7 +27,7 @@ export default function SecondStep(props: any) {
     <>
       <div className="form-group">
         <label htmlFor="position">
-          What kind of software or computer based system does your company uses?
+        Which software or computer based systems does your company use?
         </label>
         <Field
           isMulti={true}
@@ -53,6 +53,7 @@ export default function SecondStep(props: any) {
               className="form-control"
               id="position"
               name="other"
+              placeholder="Please specify"
             />
           </div>
         ) : null}
