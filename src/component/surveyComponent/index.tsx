@@ -49,8 +49,10 @@ class surverComponent  extends React.Component<Props, State> {
        SurveyService.submit(values)
        .then(() =>{
        toast.success('Thank You - Your response is most appreciated as it will help us design software solutions for your benefit.');
-       this.props.history.push('/')
-       this.submitted()
+       this.submitted();
+       setTimeout(()=>{
+        this.props.history.push('/')
+       },5000)
        })
        .catch(error =>{
          toast.error(error.message)

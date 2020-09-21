@@ -4,12 +4,14 @@ import importedImage from '../../Images/survey-image.png'
 
 export default function FirstStep(props:any) {
 
+  
     return (
     
 
 <>
 <div className="row">
-<img src={importedImage}  alt="Survey" width="161" style={{paddingLeft:"37%", marginBottom:"11px"}}/>
+<img src={importedImage}  alt="Survey" width="161" style={{marginBottom: '15px',
+    marginLeft: '34%'}}/>
 </div>
 
 <div className="form-group">
